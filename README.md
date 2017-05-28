@@ -68,8 +68,8 @@ https://github.com/cmusphinx/pocketsphinx.git
 PocketSphinx depends on SphinxBase: 
 https://github.com/cmusphinx/sphinxbase.git
 
-It also requires a Hidden Markov Model, and a Language Model, which you can find at
-https://sourceforge.net/projects/cmusphinx/files/Acoustic and Language Models/US English/
+It also requires a Hidden Markov Model, and a Language Model, which you can find
+[here](https://sourceforge.net/projects/cmusphinx/files/Acoustic%20and%20Language%20Models/US%20English/).
 
 # Example
 <pre>
