@@ -17,19 +17,6 @@ This is useful for finding your place in an audiobook if you lost your bookmark.
 is mediocre at best, but it does enable you to do crude searches through your audio files with
 embedded ~1 minute timestamps.
 
-**Note:** These variables are useful.
-Define them in `~/.config/.abarchiver.rc` or on the command line
-(command line options override config file):
-```
-    KEY='AUDIBLE KEY ("Actvation bytes")'
-    DEST='Default output directory' (defaults to $HOME)
-    POCKETSPHINX='PocketSphinx executable'
-    POCKETSPHINX_POSTPROCESS='pipe pocketsphinx output'
-                (Defaults to 'python ./pocketsphinx_filter.py')
-    HMM='Hidden Markov Model'
-    LM='Language Model'
-```
-
 # Usage
 ```
     abarchiver
@@ -53,6 +40,20 @@ Define them in `~/.config/.abarchiver.rc` or on the command line
         abarchiver AudioBookUnabridged.aax
         abarchiver --no-transcript AudioBook1_librivox.m4b
         abarchiver ./book-chapter*.mp3
+```
+
+# Configuration
+The script works out of the box, but these variables are useful.
+Define them in `~/.config/.abarchiver.rc` or on the command line
+(command line options override config file):
+```
+    KEY='AUDIBLE KEY ("Actvation bytes")'
+    DEST='Default output directory' (defaults to $HOME)
+    POCKETSPHINX='PocketSphinx executable'
+    POCKETSPHINX_POSTPROCESS='pipe pocketsphinx output'
+                (Defaults to 'python ./pocketsphinx_filter.py')
+    HMM='Hidden Markov Model'
+    LM='Language Model'
 ```
 
 # Example
