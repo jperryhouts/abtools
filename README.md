@@ -56,6 +56,21 @@ Define them in `~/.config/.abarchiver.rc` or on the command line
     LM='Language Model'
 ```
 
+# Dependencies
+The script requires python, curl, and ffmpeg (compiled with --enable-libopus, as
+is standard in many package managers) to be in your PATH. All other dependencies
+should be standard on any POSIX system.
+
+**Optional**:<br>
+For transcribing you need CMU's PocketSphinx.
+https://github.com/cmusphinx/pocketsphinx.git
+
+PocketSphinx depends on SphinxBase: 
+https://github.com/cmusphinx/sphinxbase.git
+
+It also requires a Hidden Markov Model, and a Language Model, which you can find at
+https://sourceforge.net/projects/cmusphinx/files/Acoustic and Language Models/US English/
+
 # Example
 <pre>
 $ <b>wget https://archive.org/download/walden_librivox/WaldenPart1_librivox.m4b</b>
