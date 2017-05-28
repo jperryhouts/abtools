@@ -273,7 +273,7 @@ if [ ! $no_encode ]; then
             echo "---------------------------"
             cat $metadata
             echo "---------------------------"
-            echo -n "Edit this metadata? [y/N]"
+            echo -n 'Edit this metadata? [y/N] '
             read editmetadata
             case $editmetadata in
                 'Y'|'y'|[yY][eE][sS] )
@@ -297,12 +297,13 @@ base="$(echo $title |  sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
 
 moveon='N'
 while [ "$moveon" == 'N' ]; do
-    echo "Outputs:"
+    echo ''
+    echo 'Outputs:'
     if [ ! $no_encode ]; then echo "$dest/$base.ogg"; fi
     if [ ! $no_cover ]; then echo "$dest/cover.jpg"; fi
     if [ ! $no_transcript ]; then echo "$dest/transcript.txt"; fi
     echo ''
-    echo -n 'Modify outputs ("No" will initiate processing) [y/N]'
+    echo -n 'Modify outputs ("No" will initiate processing) [y/N] '
     read yesno
     case $yesno in
         'y'|'Y'|[yY][eE][sS] )
