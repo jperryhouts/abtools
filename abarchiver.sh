@@ -27,7 +27,8 @@
 ##    KEY='AUDIBLE KEY'
 ##    DEST='Default destination' (defaults to $HOME)
 ##    POCKETSPHINX='Pocket Sphinx executable'
-##    POCKETSPHINX_POSTPROCESS='pipe pocket sphinx output' (Defaults to 'cat')
+##    POCKETSPHINX_POSTPROCESS='pipe pocket sphinx output'
+##                             (Defaults to 'python ./pocketsphinx_filter.py')
 ##    HMM='Hidden Markov Model'
 ##    LM='Language Model'
 ## -------------------------------------------------------------
@@ -87,10 +88,11 @@ helpmsg() {
     echo '    --no-encode       Do not produce encoded audiobook.'
     echo '    --no-cover        Do not download cover image.'
     echo '    --no-transcript   Do not transcribe audiobook.'
-    echo '    --key,-k KEY      Audible key'
-    echo '    --sphinx exe      PocketSphinx executable'
-    echo '    --hmm HMM         Hidden Markov Model'
-    echo '    --lm LM           Language Model'
+    echo '    --key,-k KEY      Audible key.'
+    echo '    --sphinx EXE      PocketSphinx executable.'
+    echo '    --sphinx-pp CMD   Pocketsphinx output filter.'
+    echo '    --hmm HMM         Hidden Markov Model.'
+    echo '    --lm LM           Language Model.'
     echo ''
     echo 'EXAMPLES'
     echo "    $(executable) AudioBookUnabridged.aax"
@@ -140,10 +142,11 @@ transcribe() {
 
 # Config
 DEST=$HOME
-POCKETSPHINX_POSTPROCESS='cat'
+POCKETSPHINX_POSTPROCESS="python $(dirname $(readlink -f $0))/pocketsphinx_filter.py"
 if [ -f "$HOME/.config/.abarchiver.rc" ]; then
     source ~/.config/.abarchiver.rc
 fi
+
 
 # Parse arguments
 while [ ! -f "$1" ]; do
@@ -158,6 +161,8 @@ while [ ! -f "$1" ]; do
             KEY="$2"; shift ;;
         '--sphinx' )
             POCKETSPHINX="$2"; shift ;;
+        '--sphinx-pp' )
+            POCKETSPHINX_POSTPROCESS="$2"; shift ;;
         '--hmm' )
             HMM="$2"; shift ;;
         '--lm' )
