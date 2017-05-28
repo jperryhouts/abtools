@@ -2,8 +2,9 @@
 Organize audiobooks
  
 This script archives audiobooks to compressed ogg/opus files. It accepts Audible (.aax) files,
-as well as generic audio files (mp3, m4b, wav, etc). It preserves embedded chapter metadata
-from single files, or generates it based on file breaks.
+as well as generic audio files (mp3, m4b, wav, etc). By default it will concatenate input files
+into one output. It preserves embedded chapter metadata from single files, or generates chapter
+metadata based on file breaks.
 
 It has the ability to de-DRM Audible books if you have your user's "activation bytes".
 I should point out here that I am not encouraging copyright infringement; this functionality
@@ -52,4 +53,88 @@ Define them in `~/.config/.abarchiver.rc` or on the command line
         abarchiver AudioBookUnabridged.aax
         abarchiver --no-transcript AudioBook1_librivox.m4b
         abarchiver ./book-chapter*.mp3
+```
+
+# Example
+```
+$ **wget https://archive.org/download/walden_librivox/WaldenPart1_librivox.m4b**
+$ **abarchiver.sh WaldenPart1_librivox.m4b**
+---------------------------
+;FFMETADATA1
+title=Walden
+album=Walden
+artist=thoreau_henry_david
+album_artist=thoreau_henry_david
+genre=Audiobook
+CHAPTER01=00:00:0.000
+CHAPTER01NAME=walden_c01 part 1
+CHAPTER02=00:30:16.008
+CHAPTER02NAME=walden_c01 part 2
+CHAPTER03=01:08:52.003
+CHAPTER03NAME=walden_c01 part 3
+CHAPTER04=02:07:50.020
+CHAPTER04NAME=walden_c01 part 4
+CHAPTER05=02:54:16.017
+CHAPTER05NAME=walden_c01 part 5
+CHAPTER06=03:17:42.020
+CHAPTER06NAME=walden_c02 part 1
+CHAPTER07=03:45:1.019
+CHAPTER07NAME=walden_c02 part 2
+CHAPTER08=04:10:51.022
+CHAPTER08NAME=walden_c03
+CHAPTER09=04:46:45.006
+CHAPTER09NAME=walden_c04
+CHAPTER10=05:37:9.007
+CHAPTER10NAME=walden_c05
+CHAPTER11=06:09:7.004
+CHAPTER11NAME=walden_c06
+CHAPTER12=06:42:33.003
+CHAPTER12NAME=walden_c07
+---------------------------
+Edit this metadata? [y/N] **Y [ENTER]**
+
+>> **EDIT METADATA AS A FILE**
+
+---------------------------
+;FFMETADATA1
+title=Walden
+album=Walden
+artist=Henry David Thoreau
+album_artist=Henry David Thoreau
+genre=Audiobook
+CHAPTER01=00:00:0.000
+CHAPTER01NAME=Chapter 01 Part 1
+CHAPTER02=00:30:16.008
+CHAPTER02NAME=Chapter 01 Part 2
+CHAPTER03=01:08:52.003
+CHAPTER03NAME=Chapter 01 Part 3
+CHAPTER04=02:07:50.020
+CHAPTER04NAME=Chapter 01 Part 4
+CHAPTER05=02:54:16.017
+CHAPTER05NAME=Chapter 01 Part 5
+CHAPTER06=03:17:42.020
+CHAPTER06NAME=Chapter 02 Part 1
+CHAPTER07=03:45:1.019
+CHAPTER07NAME=Chapter 02 Part 2
+CHAPTER08=04:10:51.022
+CHAPTER08NAME=Chapter 03
+CHAPTER09=04:46:45.006
+CHAPTER09NAME=Chapter 04
+CHAPTER10=05:37:9.007
+CHAPTER10NAME=Chapter 05
+CHAPTER11=06:09:7.004
+CHAPTER11NAME=Chapter 06
+CHAPTER12=06:42:33.003
+CHAPTER12NAME=Chapter 07
+---------------------------
+Edit this metadata? [y/N] **N [ENTER]**
+
+Outputs:
+/home/user/Audiobooks/Henry David Thoreau - Walden/Walden.ogg
+/home/user/Audiobooks/Henry David Thoreau - Walden/cover.jpg
+/home/user/Audiobooks/Henry David Thoreau - Walden/transcript.txt
+
+Modify outputs ("No" will initiate processing) [y/N] **N [ENTER]**
+
+... diagnostics ...
 ```
