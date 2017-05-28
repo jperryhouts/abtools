@@ -93,7 +93,7 @@ CHAPTER12NAME=walden_c07
 ---------------------------
 Edit this metadata? [y/N] <b>Y [ENTER]</b>
 
->> <b>EDIT METADATA AS A FILE</b>
+<b>[EDIT METADATA AS A FILE]</b>
 
 ---------------------------
 ;FFMETADATA1
