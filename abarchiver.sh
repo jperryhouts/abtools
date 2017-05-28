@@ -329,9 +329,10 @@ mkdir -p "$dest"
 # Download cover
 if [ ! $no_cover ]; then
     if ls "$dest"/cover* 1> /dev/null 2>&1; then
-        echo "Cover already exists. Skipping."
+        echo 'Cover already exists. Skipping.'
     else
-        echo -n "Cover URL: "
+        echo ''
+        echo -n 'Cover URL: '
         read coverurl
         coverext=${coverurl##*.}
         curl "$coverurl" > "$dest/cover.$coverext"
@@ -348,9 +349,9 @@ fi
 # Transcribe:
 if [ ! $no_transcript ]; then
     if [ -f "$dest/transcript.txt" ]; then
-        echo "Skipping transcription. Destination file is newer than source."
+        echo 'Skipping transcription. Destination file is newer than source.'
     else
-        echo "Transcribing."
+        echo 'Transcribing.'
         tmpwav=$(mktemp --suffix='.wav')
         add_cleanup rm -f $tmpwav
         $FFMPEG -i "$input" -vn -ar 16k -ac 1 -y $tmpwav
