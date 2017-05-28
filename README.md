@@ -4,7 +4,7 @@ Organize audiobooks
 This script archives audiobooks to compressed ogg/opus files. It accepts Audible (.aax) files,
 as well as generic audio files (mp3, m4b, wav, etc). By default it will concatenate input files
 into one output. It preserves embedded chapter metadata from single files, or generates chapter
-metadata based on file breaks.
+metadata based on file breaks if multiple input files are given.
 
 It has the ability to de-DRM Audible books if you have your user's "activation bytes".
 I should point out here that I am not encouraging copyright infringement; this functionality
@@ -12,7 +12,7 @@ is intended to provide a means of compressing, and archiving audiobooks only. I 
 is important to have choice when it comes to how you listen to audiobooks and DRM infringes
 on that ability.
 
-It can also transcribe audiobooks to plain text files with PocketSphinx speech to text engine.
+It can also transcribe audiobooks to plain text files with CMU's PocketSphinx speech-to-text engine.
 This is useful for finding your place in an audiobook if you lost your bookmark. The speech recognition
 is mediocre at best, but it does enable you to do crude searches through your audio files with
 embedded ~1 minute timestamps.
