@@ -11,7 +11,7 @@ is intended to provide a means of compressing, and archiving audiobooks only. I 
 is important to have choice when it comes to how you listen to audiobooks and DRM infringes
 on that ability.
 
-It can also transcribe audiobooks to plain text files with Pocket Sphinx speech to text engine.
+It can also transcribe audiobooks to plain text files with PocketSphinx speech to text engine.
 This is useful for finding your place in an audiobook if you lost your bookmark. The speech recognition
 is mediocre at best, but it does enable you to do crude searches through your audio files with
 embedded ~1 minute timestamps.
