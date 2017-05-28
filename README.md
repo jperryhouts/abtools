@@ -56,9 +56,9 @@ Define them in `~/.config/.abarchiver.rc` or on the command line
 ```
 
 # Example
-```
-$ **wget https://archive.org/download/walden_librivox/WaldenPart1_librivox.m4b**
-$ **abarchiver.sh WaldenPart1_librivox.m4b**
+<pre>
+$ <b>wget https://archive.org/download/walden_librivox/WaldenPart1_librivox.m4b</b>
+$ <b>abarchiver.sh WaldenPart1_librivox.m4b</b>
 ---------------------------
 ;FFMETADATA1
 title=Walden
@@ -91,9 +91,9 @@ CHAPTER11NAME=walden_c06
 CHAPTER12=06:42:33.003
 CHAPTER12NAME=walden_c07
 ---------------------------
-Edit this metadata? [y/N] **Y [ENTER]**
+Edit this metadata? [y/N] <b>Y [ENTER]</b>
 
->> **EDIT METADATA AS A FILE**
+>> <b>EDIT METADATA AS A FILE</b>
 
 ---------------------------
 ;FFMETADATA1
@@ -127,14 +127,16 @@ CHAPTER11NAME=Chapter 06
 CHAPTER12=06:42:33.003
 CHAPTER12NAME=Chapter 07
 ---------------------------
-Edit this metadata? [y/N] **N [ENTER]**
+Edit this metadata? [y/N] <b>N [ENTER]</b>
 
 Outputs:
 /home/user/Audiobooks/Henry David Thoreau - Walden/Walden.ogg
 /home/user/Audiobooks/Henry David Thoreau - Walden/cover.jpg
 /home/user/Audiobooks/Henry David Thoreau - Walden/transcript.txt
 
-Modify outputs ("No" will initiate processing) [y/N] **N [ENTER]**
+Modify outputs ("No" will initiate processing) [y/N] <b>N [ENTER]</b>
+
+Cover URL: <b>http://archive.org/download/walden_librivox/Walden_1105.jpg</b>
 
 ... diagnostics ...
-```
+</pre>
