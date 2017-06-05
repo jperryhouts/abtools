@@ -22,7 +22,7 @@
 ##
 ##
 ## Note: These variables are useful.
-## Define them in ~/.config/.abarchiver.rc or on the command line
+## Define them in ~/.config/abarchiver.rc or on the command line
 ## (command line options override config file)
 ##    KEY='AUDIBLE KEY'
 ##    DEST='Default destination' (defaults to $HOME)
@@ -143,10 +143,13 @@ transcribe() {
 # Config
 DEST=$HOME
 POCKETSPHINX_POSTPROCESS="python $(dirname $(readlink -f $0))/pocketsphinx_filter.py"
-if [ -f "$HOME/.config/.abarchiver.rc" ]; then
-    source ~/.config/.abarchiver.rc
+if [ -f "$HOME/.config/abarchiver.rc" ]; then
+    source "$HOME/.config/abarchiver.rc"
+elif [ -f "$HOME/.abarchiver.rc" ]; then
+    source "$HOME/.abarchiver.rc"
+elif [ -f "$HOME/.config/.abarchiver.rc" ]; then
+    source "$HOME/.config/.abarchiver.rc"
 fi
-
 
 # Parse arguments
 while [ ! -f "$1" ]; do
