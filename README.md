@@ -44,7 +44,7 @@ embedded ~1 minute timestamps.
 
 # Configuration
 The script works out of the box, but these variables are useful.
-Define them in `~/.config/.abarchiver.rc` or on the command line
+Define them in `~/.config/abarchiver.rc` or on the command line
 (command line options override config file):
 ```
     KEY='AUDIBLE KEY ("Actvation bytes")'
