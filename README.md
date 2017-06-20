@@ -1,7 +1,7 @@
-# abarchive
+# abtools
 Organize audiobooks
  
-This script archives audiobooks to compressed ogg/opus files. It accepts Audible (.aax) files,
+This script provides tools for manipulating digital audiobooks. It accepts Audible (.aax) files,
 as well as generic audio files (mp3, m4b, wav, etc). By default it will concatenate input files
 into one output. It preserves embedded chapter metadata from single files, or generates chapter
 metadata based on file breaks if multiple input files are given.
@@ -19,13 +19,13 @@ embedded ~1 minute timestamps.
 
 # Usage
 ```
-    abarchiver
+    abtools
 
     NAME
-        abarchiver -- Archive audio books from Audible or elsewhere
+        abtools -- Archive audio books from Audible or elsewhere
 
     SYNOPSIS
-        Usage: abarchiver [ OPTIONS ] input_file(s)
+        Usage: abtools [ OPTIONS ] input_file(s)
 
     OPTIONS
         --no-encode       Do not produce encoded audiobook.
@@ -37,14 +37,14 @@ embedded ~1 minute timestamps.
         --lm LM           Language Model
 
     EXAMPLES
-        abarchiver AudioBookUnabridged.aax
-        abarchiver --no-transcript AudioBook1_librivox.m4b
-        abarchiver ./book-chapter*.mp3
+        abtools AudioBookUnabridged.aax
+        abtools --no-transcript AudioBook1_librivox.m4b
+        abtools ./book-chapter*.mp3
 ```
 
 # Configuration
 The script works out of the box, but these variables are useful.
-Define them in `~/.config/abarchiver.rc` or on the command line
+Define them in `~/.config/abtools.rc` or on the command line
 (command line options override config file):
 ```
     KEY='AUDIBLE KEY ("Actvation bytes")'
@@ -74,7 +74,7 @@ It also requires a Hidden Markov Model, and a Language Model, which you can find
 # Example
 <pre>
 $ <b>wget https://archive.org/download/walden_librivox/WaldenPart1_librivox.m4b</b>
-$ <b>abarchiver.sh WaldenPart1_librivox.m4b</b>
+$ <b>abtools.sh WaldenPart1_librivox.m4b</b>
 ---------------------------
 ;FFMETADATA1
 title=Walden

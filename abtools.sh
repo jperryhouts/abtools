@@ -14,7 +14,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ## -------------------------------------------------------------
-## This script archives audiobooks to compressed ogg/opus files.
+## This script provides tools for manipulating audiobooks.
 ## It accepts Audible (.aax) files, as well as generic audio files
 ## (mp3, m4b, wav, etc). It preserves embedded chapter metadata
 ## from single files, or generates it based on file breaks.
@@ -22,7 +22,7 @@
 ##
 ##
 ## Note: These variables are useful.
-## Define them in ~/.config/abarchiver.rc or on the command line
+## Define them in ~/.config/abtools.rc or on the command line
 ## (command line options override config file)
 ##    KEY='AUDIBLE KEY'
 ##    DEST='Default destination' (defaults to $HOME)
@@ -79,7 +79,7 @@ helpmsg() {
     echo $(executable)
     echo ''
     echo 'NAME'
-    echo '    abarchiver -- Archive audio books from Audible or elsewhere'
+    echo '    abtools -- Manipulate audio books from Audible or elsewhere'
     echo ''
     echo 'SYNOPSIS'
     echo -n '    '; shorthelp
@@ -143,7 +143,13 @@ transcribe() {
 # Config
 DEST=$HOME
 POCKETSPHINX_POSTPROCESS="python $(dirname $(readlink -f $0))/pocketsphinx_filter.py"
-if [ -f "$HOME/.config/abarchiver.rc" ]; then
+if [ -f "$HOME/.config/abtools.rc" ]; then
+    source "$HOME/.config/abtools.rc"
+elif [ -f "$HOME/.abtools.rc" ]; then
+    source "$HOME/.abtools.rc"
+elif [ -f "$HOME/.config/.abtools.rc" ]; then
+    source "$HOME/.config/.abtools.rc"
+elif [ -f "$HOME/.config/abarchiver.rc" ]; then
     source "$HOME/.config/abarchiver.rc"
 elif [ -f "$HOME/.abarchiver.rc" ]; then
     source "$HOME/.abarchiver.rc"
